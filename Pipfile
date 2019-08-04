@@ -10,3 +10,7 @@ dbt = "*"
 
 [requires]
 python_version = "3.7"
+
+[scripts]
+build="dbt docs generate"
+build_and_serve="dbt docs generate && dbt docs serve & dbt run"
