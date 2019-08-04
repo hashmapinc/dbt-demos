@@ -105,3 +105,4 @@ venv.bak/
 
 .idea/
 demo1/dev/
+snowflake_tpc_demo/dev/
