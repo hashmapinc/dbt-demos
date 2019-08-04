@@ -17,6 +17,13 @@ materialized as tables. The final model results in view (analytics_view).
 
 From root execute the following:
 
+**To Test**:
+```bash
+pipenv install
+pipenv update
+(cd snowflake_tpc_demo && pipenv test)
+```
+
 **To Build**:
 ```bash
 pipenv install

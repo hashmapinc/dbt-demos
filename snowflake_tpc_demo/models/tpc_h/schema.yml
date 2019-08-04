@@ -1,0 +1,60 @@
+# Modifications © 2019 Hashmap, Inc
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+version: 2
+
+models:
+  - name: supplier_parts
+    tests:
+      - unique:
+          column_name: "concat(part_key, supplier_key, supplier_name)"
+
+    columns:
+      - name: part_key
+        tests:
+          - not_null
+
+      - name: supplier_key
+        tests:
+          - not_null
+
+      - name: nation_key
+        tests:
+          - not_null
+
+  - name: customer_nation_region
+    tests:
+      - unique:
+          column_name: "concat(nation, customer_name)"
+
+    columns:
+      - name: nation_key
+        tests:
+          - not_null
+
+  - name: customer_nation_region_aggregates
+    tests:
+      - unique:
+          column_name: "concat(nation_key, customer_name)"
+          severity: warn
+
+    columns:
+      - name: nation_key
+        tests:
+          - not_null:
+              severity: warn
+          - relationships:
+              - to: ref('customer_nation_region')
+                field: nation_key
+                severity: warn

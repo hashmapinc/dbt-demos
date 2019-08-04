@@ -35,14 +35,6 @@ models:
 
   crypto_package:
 
-    postgres_example:
-      enabled: false
-      materialized: table
-
-    snowflake_metadata_queries:
-      enabled: false
-      materialized: table
-
     tpc_h:
       enabled: true
       materialized: table
