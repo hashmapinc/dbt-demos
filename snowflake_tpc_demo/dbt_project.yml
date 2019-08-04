@@ -14,6 +14,7 @@ profile: 'sf'
 # The `source-paths` config, for example, states that source models can be found
 # in the "models/" directory. You probably won't need to change these!
 source-paths: ["models"]
+docs-paths: ["docs"]
 analysis-paths: ["analysis"] 
 test-paths: ["tests"]
 data-paths: ["data"]
