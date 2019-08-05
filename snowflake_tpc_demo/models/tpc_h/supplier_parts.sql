@@ -32,11 +32,11 @@ s_acctbal as account_balance,
 ps_availqty as available_quantity,
 ps_supplycost as supply_cost,
 p_partkey as part_key,
-p_name as product_name,
-p_mfgr as product_manufacturer,
-p_brand as product_brand,
-p_type as product_type,
-p_size as product_size,
-p_container as product_container,
-p_retailprice as product_retail_price
+p_name as part_name,
+p_mfgr as part_manufacturer,
+p_brand as part_brand,
+p_type as part_type,
+p_size as part_size,
+p_container as part_container,
+p_retailprice as part_retail_price
     FROM supplier_parts

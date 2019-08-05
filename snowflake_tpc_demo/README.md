@@ -31,11 +31,18 @@ pipenv update
 (cd snowflake_tpc_demo && pipenv build)
 ```
 
-**To Build and Serve**:
+**To Build and Serve Documentation**
 ```bash
 pipenv install
 pipenv update
 (cd snowflake_tpc_demo && pipenv build_and_serve)
+```
+
+**To Build and RUN**:
+```bash
+pipenv install
+pipenv update
+(cd snowflake_tpc_demo && pipenv build_and_run)
 ```
 
 ---
