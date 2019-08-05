@@ -13,7 +13,7 @@ container: hashmapinc/python:dbt
 
 steps:
 
-- task: DownloadSecureProfileFile@1
+- task: DownloadSecureFile@1
   name: SettingProfile
   displayName: 'Downloading Profile for Snowflake'
   inputs:
