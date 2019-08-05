@@ -6,17 +6,27 @@ pipeline {
     }
   }
   stages {
-    stage('Test and Deploy Models') {
+    stage('Setting up Profile'){
+        steps{
+            sh 'mkdir ~/.dbt'
+            withCredentials([file(credentialsId: 'dbt-profile-snowflake', variable: 'DBT_PROFILE')]) {
+            sh 'cp \$DBT_PROFILE ~/.dbt'
+            }             
+        }
+    }
+    stage('Compile and Test') {
       steps {
-        configFileProvider([configFile(fileId: 'dbt-profile-snowflake', variable: 'DBT_PROFILE')]) {
-          sh 'cp \$DBT_PROFILE ~/.dbt/'
-        }        
-        sh 'cd snowflake_tpc_demo'
-        sh 'dbt compile'
-        sh 'dbt test'       
-        sh 'dbt run'
+        sh '''cd snowflake_tpc_demo
+                dbt compile       
+                dbt test'''
       }
     }
+    stage('Transformation') {
+      steps {
+        sh '''cd snowflake_tpc_demo
+                dbt run'''
+      }
+    }    
   }
   options {
     timeout(time: 1, unit: 'HOURS')
