@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/hashmap-labs/berserk-john/_apis/build/status/hashmapinc.dbt-demos?branchName=master)](https://dev.azure.com/hashmap-labs/berserk-john/_build/latest?definitionId=3&branchName=master)
+
 # dbt-demos
 Demonstrations of DBT
 
