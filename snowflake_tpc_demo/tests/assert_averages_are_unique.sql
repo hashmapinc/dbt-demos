@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+/*
 WITH calc AS (
     SELECT
         CASE
@@ -33,3 +34,5 @@ agg AS (
 SELECT *
 FROM agg
     WHERE PCT_MISMATCH > 0.99
+
+*/
