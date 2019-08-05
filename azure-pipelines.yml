@@ -9,7 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-container: python:3.7
+container: 
+  image: python:3.7
+  options: -u root
 
 steps:
 
@@ -22,11 +24,12 @@ steps:
 - script: |
     echo Installing $(SettingProfile.secureFilePath) to the ~/.dbt...
     mkdir ~/.dbt
-    cp $(SettingProfile.secureFilePath) ~/.dbt
+    cp $(SettingProfile.secureFilePath) ~/.dbt/profiles.yml
   displayName: Installing Profile for Snowflake
     
 - script: |
-    pip install dbt
+    pip install dbt --user
+    export PATH=$PATH:/home/vsts_azpcontainer/.local/bin
     cd snowflake_tpc_demo
     dbt compile
     dbt test
