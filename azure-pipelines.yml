@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-container: hashmapinc/python:dbt
+container: python:3.7
 
 steps:
 
@@ -26,6 +26,7 @@ steps:
   displayName: Installing Profile for Snowflake
     
 - script: |
+    pip install dbt
     cd snowflake_tpc_demo
     dbt compile
     dbt test
